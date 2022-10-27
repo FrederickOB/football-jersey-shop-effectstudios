@@ -98,10 +98,28 @@ export default function Home() {
       </section>
       <section className="w-full py-20 ">
         <Heading text="Country Leagues" />
-        <CountryLeaguesCard text="Champions League" image="champions-league" />
-        <CountryLeaguesCard text="Champions League" image="champions-league" />
-        <CountryLeaguesCard text="Champions League" image="champions-league" />
-        <CountryLeaguesCard text="Champions League" image="champions-league" />
+        <div className="grid grid-cols-5 space-x-4">
+          <CountryLeaguesCard
+            text="Champions League"
+            image="champions-league"
+          />
+          <CountryLeaguesCard
+            text="Champions League"
+            image="champions-league"
+          />
+          <CountryLeaguesCard
+            text="Champions League"
+            image="champions-league"
+          />
+          <CountryLeaguesCard
+            text="Champions League"
+            image="champions-league"
+          />
+          <CountryLeaguesCard
+            text="Champions League"
+            image="champions-league"
+          />
+        </div>
       </section>
     </div>
   );

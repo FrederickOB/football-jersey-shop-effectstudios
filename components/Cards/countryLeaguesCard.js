@@ -4,7 +4,7 @@ import React from "react";
 export default function CountryLeaguesCard({ image, text }) {
   return (
     <div className="w-64 h-64 ">
-      <div className="relative w-64 h-64">
+      <div className="relative w-full h-64">
         <Image
           layout="fill"
           src={`/assets/images/country-leagues/${image}.jpg`}
