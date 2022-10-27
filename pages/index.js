@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import BackgroundImageCard from "../components/Cards/backgroundImageCard";
+import BackgroundImage from "../components/Cards/backgroundImageCard";
 import CountryLeaguesCard from "../components/Cards/countryLeaguesCard";
 import DetailsCard from "../components/Cards/detailsCard";
 import OtherCollections from "../components/Cards/otherCollections";
@@ -141,7 +141,7 @@ export default function Home() {
           </div>
         </section>
         <section className="w-full ">
-          <BackgroundImageCard />
+          <BackgroundImage />
         </section>
       </div>
     </div>
