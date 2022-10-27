@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import CountryLeaguesCard from "../components/Cards/countryLeaguesCard";
 import DetailsCard from "../components/Cards/detailsCard";
+import OtherCollections from "../components/Cards/otherCollections";
 import ProductCard from "../components/Cards/productCard";
 import Heading from "../components/Heading/headings";
 import Hero from "../components/hero/hero";
@@ -119,6 +120,17 @@ export default function Home() {
             text="Champions League"
             image="champions-league"
           />
+        </div>
+      </section>
+      <section className="w-full py-20 ">
+        <Heading text="Other Collections" />
+        <div className="grid grid-cols-3 gap-8">
+          <OtherCollections text="Kids" image="kids" />
+          <OtherCollections text="Large sizes" image="large-sizes" />
+          <OtherCollections text="Goalkeeper" image="goalkeeper" />
+          <OtherCollections text="Authentic / Pro Player" image="pro-player" />
+          <OtherCollections text="shorts" image="shorts" />
+          <OtherCollections text="socks" image="socks" />
         </div>
       </section>
     </div>
