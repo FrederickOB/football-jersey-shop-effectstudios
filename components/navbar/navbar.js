@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <div>
       <div className="flex w-screen h-8 ">
-        <div className="flex items-center justify-center w-40 h-full  bg-black/80">
+        <div className="flex items-center justify-center w-40 h-full bg-black/80">
           <Image
             src="/assets/icons/svg/globe.svg"
             alt="globe icon"
@@ -16,8 +16,9 @@ export default function Navbar() {
             EN
           </span>
           <Image
-            src="/assets/icons/svg/downWhite.svg"
+            src="/assets/icons/svg/down.svg"
             alt="down white"
+            className="invert"
             height={5}
             width={8}
           />

@@ -11,16 +11,18 @@ export default function Heading({ text, withScrollButtons = false }) {
         <div className="flex h-full space-x-1">
           <div className="flex items-center justify-center w-8 h-8 border">
             <Image
-              src="/assets/icons/svg/leftBlack.svg"
+              src="/assets/icons/svg/left.svg"
               alt="left icon"
+              className="brightness-0"
               height={7}
               width={12}
             />
           </div>
           <div className="flex items-center justify-center w-8 h-8 border">
             <Image
-              src="/assets/icons/svg/rightBlack.svg"
+              src="/assets/icons/svg/right.svg"
               alt="right icon"
+              className="brightness-0"
               height={7}
               width={12}
             />
