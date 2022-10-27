@@ -16,8 +16,9 @@ export default function OtherCollections({ text, image }) {
           </div>
           <div className="flex items-center justify-center w-12 h-full bg-yellow-300">
             <Image
-              src="/assets/icons/svg/rightBlack.svg"
+              src="/assets/icons/svg/right.svg"
               alt="right icon"
+              className="brightness-0"
               height={7}
               width={12}
             />
