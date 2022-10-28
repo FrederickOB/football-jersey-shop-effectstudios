@@ -3,15 +3,16 @@ import React from "react";
 
 export default function CountryLeaguesCard({ image, text }) {
   return (
-    <div className="w-64 h-64 ">
-      <div className="relative w-full h-64">
+    <div className="w-full h-full ">
+      <div className="relative aspect-square">
         <Image
           layout="fill"
+          object-fit="cover"
           src={`/assets/images/country-leagues/${image}.jpg`}
           alt={`${image} large`}
         />
       </div>
-      <h3 className="mt-4 text-base font-bold text-black">{text}</h3>
+      <h3 className="mt-4 text-xs font-bold text-black lg:text-base">{text}</h3>
     </div>
   );
 }
