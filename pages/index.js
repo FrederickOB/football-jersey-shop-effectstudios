@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
-import BackgroundImage from "../components/Cards/backgroundImageCard";
-import CountryLeaguesCard from "../components/Cards/countryLeaguesCard";
-import DetailsCard from "../components/Cards/detailsCard";
-import OtherCollections from "../components/Cards/otherCollections";
-import ProductCard from "../components/Cards/productCard";
+import BackgroundImage from "../components/cards/backgroundImageCard";
+import CountryLeaguesCard from "../components/cards/countryLeaguesCard";
+import DetailsCard from "../components/cards/detailsCard";
+import OtherCollections from "../components/cards/otherCollections";
+import ProductCard from "../components/cards/productCard";
 import Heading from "../components/Heading/headings";
 import Hero from "../components/hero/hero";
 
@@ -17,9 +17,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="p-10 space-y-10">
+      <div className="lg:space-y-10 lg:p-10">
         <Hero />
-        <div className="grid w-full h-40 grid-cols-4 gap-4">
+        <div className="grid w-full grid-cols-2 gap-4 p-4 lg:h-40 lg:grid-cols-4 lg:p-0">
           <DetailsCard
             icon="truck"
             topic="Secure Shipping"
@@ -37,16 +37,15 @@ export default function Home() {
             body="Verified Purchase Reviews"
           />
         </div>
-        <div className="-ml-10">
-          <Image
-            src="/assets/icons/svg/rewards-badge.svg"
-            alt="rewards badge"
-            height={56}
-            width={160}
-          />
-        </div>
       </div>
-      <div className="p-20 space-y-20">
+      <div className="relative w-40 lg:-ml-10 h-14">
+        <Image
+          src="/assets/icons/svg/rewards-badge.svg"
+          alt="rewards badge"
+          layout="fill"
+        />
+      </div>
+      <div className="relative px-4 py-3 pb-20 space-y-20 lg:p-20">
         <section className="w-full ">
           <Heading text="MOST POPULAR T-SHIRTS" withScrollButtons={true} />
           <div className="relative flex flex-row w-full space-x-8 overflow-x-auto">
@@ -103,7 +102,7 @@ export default function Home() {
         </section>
         <section className="w-full ">
           <Heading text="Country Leagues" />
-          <div className="grid grid-cols-5 space-x-4">
+          <div className="grid h-full grid-cols-2 gap-4 lg:grid-cols-5">
             <CountryLeaguesCard
               text="Champions League"
               image="champions-league"
@@ -128,7 +127,7 @@ export default function Home() {
         </section>
         <section className="w-full ">
           <Heading text="Other Collections" />
-          <div className="grid grid-cols-3 gap-12">
+          <div className="grid grid-cols-2 gap-5 lg:gap-12 lg:grid-cols-3">
             <OtherCollections text="Kids" image="kids" />
             <OtherCollections text="Large sizes" image="large-sizes" />
             <OtherCollections text="Goalkeeper" image="goalkeeper" />

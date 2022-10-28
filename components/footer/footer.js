@@ -4,7 +4,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="w-screen bg-neutral-100">
-      <div className="grid w-full grid-cols-4 gap-8 p-20">
+      <div className="grid w-full grid-cols-1 gap-8 px-4 py-10 lg:p-20 lg:grid-cols-4">
         <div>
           <h3 className="text-base font-bold leading-8 ">Main Menu</h3>
           <nav className="mt-6 ">
@@ -86,10 +86,18 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <div className="relative w-full h-10 lg:hidden">
+          <Image
+            layout="fill"
+            src="/assets/images/payment-partners.png"
+            alt="payment-partners"
+          />
+        </div>
       </div>
-      <div className="flex items-center justify-between px-20 py-5 border-t">
-        <div className="text-xs">{`© ${new Date().getFullYear()} Jambulani • All rights reserved`}</div>
-        <div className="relative w-[22rem] h-10">
+
+      <div className="flex justify-start px-4 py-5 border-t lg:px-20 lg:items-center lg:justify-between">
+        <div className="text-xs text-left">{`© ${new Date().getFullYear()} Jambulani • All rights reserved`}</div>
+        <div className="hidden lg:flex relative w-[22rem] h-10">
           <Image
             layout="fill"
             src="/assets/images/payment-partners.png"
