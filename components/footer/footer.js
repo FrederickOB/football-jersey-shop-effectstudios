@@ -9,13 +9,13 @@ export default function Footer() {
           <h3 className="text-base font-bold leading-8 ">Main Menu</h3>
           <nav className="mt-6 ">
             <ul className="space-y-4">
-              <li className="text-sm">Home</li>
-              <li className="text-sm">T-shirts</li>
-              <li className="text-sm">NBA</li>
-              <li className="text-sm">Tracksuits</li>
-              <li className="text-sm">Products Delivery • 1 – 2 days</li>
-              <li className="text-sm">Contact</li>
-              <li className="text-sm">Reviews</li>
+              <li className="text-sm hover:underline cursor-pointer">Home</li>
+              <li className="text-sm hover:underline cursor-pointer">T-shirts</li>
+              <li className="text-sm hover:underline cursor-pointer">NBA</li>
+              <li className="text-sm hover:underline cursor-pointer">Tracksuits</li>
+              <li className="text-sm hover:underline cursor-pointer">Products Delivery • 1 – 2 days</li>
+              <li className="text-sm hover:underline cursor-pointer">Contact</li>
+              <li className="text-sm hover:underline cursor-pointer">Reviews</li>
             </ul>
           </nav>
         </div>
@@ -23,11 +23,11 @@ export default function Footer() {
           <h3 className="text-base font-bold leading-8 ">Secondary Menu</h3>
           <nav className="mt-6 ">
             <ul className="space-y-4">
-              <li className="text-sm">Search</li>
-              <li className="text-sm">Privacy Policy</li>
-              <li className="text-sm">Shipping Policy</li>
-              <li className="text-sm">Returns Policy</li>
-              <li className="text-sm">Terms of Service</li>
+              <li className="text-sm hover:underline cursor-pointer">Search</li>
+              <li className="text-sm hover:underline cursor-pointer">Privacy Policy</li>
+              <li className="text-sm hover:underline cursor-pointer">Shipping Policy</li>
+              <li className="text-sm hover:underline cursor-pointer">Returns Policy</li>
+              <li className="text-sm hover:underline cursor-pointer">Terms of Service</li>
             </ul>
           </nav>
         </div>

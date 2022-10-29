@@ -2,10 +2,9 @@ import Image from "next/image";
 import React from "react";
 
 export default function CountryLeaguesCard({ image, text, key, slug }) {
-  console.log(slug);
   return (
     <div className="w-full h-full ">
-      <div className="relative aspect-square">
+      <div className="relative aspect-square hover:scale-105 hover:shadow-lg">
         <Image
           layout="fill"
           object-fit="cover"

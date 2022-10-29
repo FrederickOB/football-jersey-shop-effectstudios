@@ -35,6 +35,16 @@ export const getCollectionsCategories = async () => {
     console.log(err);
   }
 };
+export const getOtherCollections = async () => {
+  try {
+    const res = await axios.get(`/product-category?keyword=other`);
+    if (res.status === 200) {
+      return res.data;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const getSingleCollectionCategory = async ({ slug }) => {
   try {

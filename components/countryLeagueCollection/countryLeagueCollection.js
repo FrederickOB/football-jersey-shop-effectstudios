@@ -3,7 +3,6 @@ import CountryLeaguesCard from "./countryLeaguesCard";
 import Heading from "../Heading/headings";
 
 export default function SpecialTournamentsCollection({ data }) {
-  console.log(data);
   return (
     <section className="w-full ">
       <Heading text="Special Tournaments" />

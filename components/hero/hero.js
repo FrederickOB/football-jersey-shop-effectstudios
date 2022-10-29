@@ -55,7 +55,12 @@ const Hero = ({ banners }) => {
                   className="relative w-full h-[25rem] aspect-video inline-flex items-center justify-center"
                   key={banner.id}
                 >
-                  <Image src={banner.image} layout="fill" alt="hero image" />
+                  <Image
+                    src={banner.image}
+                    objectFit="cover"
+                    layout="fill"
+                    alt="hero image"
+                  />
                   <div className="absolute flex w-full h-full">
                     <div className="flex flex-col justify-between w-2/3 h-full p-6 lg:pt-20 lg:pb-10 lg:px-20 bg-gradient-to-r from-black/80">
                       <div className=" text-2xl lg:text-[2.5rem] font-bold lg:leading-10 text-white overflow-visible">

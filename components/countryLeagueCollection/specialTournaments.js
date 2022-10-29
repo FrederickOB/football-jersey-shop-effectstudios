@@ -2,9 +2,7 @@ import React from "react";
 import CountryLeaguesCard from "./countryLeaguesCard";
 import Heading from "../Heading/headings";
 
-
 export default function CountryLeagueCollection({ data }) {
-  console.log(data);
   return (
     <section className="w-full ">
       <Heading text="Country Leagues" />

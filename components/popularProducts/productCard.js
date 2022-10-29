@@ -15,9 +15,12 @@ export default function ProductCard({
     return Math.round(discountPercentage * 10) / 10;
   };
   return (
-    <Link href={`/products/${slug}`} className="cursor-pointer">
-      <div key={key} className="w-60 h-[22rem] border cursor-pointer">
-        <div className="relative w-60 h-60">
+    <Link href={`/products/${slug}`}>
+      <div
+        key={key}
+        className="w-60 h-[22rem] border cursor-pointer hover:scale-105 hover:shadow "
+      >
+        <div className="relative w-60 h-60 ">
           <Image layout="fill" src={`${image}`} alt={`${product_name} large`} />
           {discount_price > 0 && (
             <div className="px-2 absolute bottom-4 left-4 flex py-1 font-semibold text-white text-[10px] bg-green-500">

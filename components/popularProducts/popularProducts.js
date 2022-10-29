@@ -6,7 +6,10 @@ export default function PopularProducts({ data }) {
   return (
     <section className="w-full ">
       <Heading text="MOST POPULAR T-SHIRTS" withScrollButtons={true} />
-      <div className="relative flex flex-row w-full space-x-8 overflow-x-auto">
+      <div
+        className="relative flex flex-row w-full h-96  space-x-8 overflow-x-auto  "
+        e
+      >
         {data && data.data
           ? data.data.map((popularProduct, index) => (
               <ProductCard

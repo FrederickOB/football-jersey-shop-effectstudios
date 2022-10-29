@@ -10,7 +10,7 @@ export default function TextInput({
 }) {
   return (
     <div className="flex items-center justify-start">
-      <div className="w-40 text-xs font-semibold">{label}</div>
+      <div className="w-20 lg:w-40  text-xs font-semibold">{label}</div>
       <input
         type="text"
         name={name}

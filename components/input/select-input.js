@@ -15,7 +15,7 @@ export default function SelectInput({
 }) {
   return (
     <div className="flex items-center justify-start w-full">
-      <div className="w-40  text-[12px] font-semibold">{label}</div>
+      <div className="w-20 lg:w-40  text-[12px] font-semibold">{label}</div>
       <div className="flex w-full space-x-2">
         <div className="relative flex h-10 w-full items-center px-5 py-3 text-xs border">
           <select

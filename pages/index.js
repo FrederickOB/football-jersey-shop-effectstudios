@@ -3,23 +3,28 @@ import Image from "next/image";
 import BackgroundImage from "../components/cards/backgroundImageCard";
 import CountryLeaguesCard from "../components/countryLeagueCollection/countryLeaguesCard";
 import DetailsCard from "../components/cards/detailsCard";
-import OtherCollections from "../components/cards/otherCollections";
+import OtherCollections from "../components/otherCollections/otherCollections";
 import Heading from "../components/Heading/headings";
 import Hero from "../components/hero/hero";
 import PopularProducts from "../components/popularProducts/popularProducts";
 import {
   getBanner,
   getCollectionsCategories,
+  getOtherCollections,
   getPopularProducts,
 } from "./api/apis";
 import CountryLeagueCollection from "../components/countryLeagueCollection/countryLeagueCollection";
 import SpecialTournamentsCollection from "../components/countryLeagueCollection/countryLeagueCollection";
+import { motion, useIsPresent } from "framer-motion";
 
 export default function Home({
   banners,
   collectionsCategories,
   popularProducts,
+  otherCollections,
 }) {
+  const isPresent = useIsPresent();
+
   return (
     <div className="">
       <Head>
@@ -49,7 +54,7 @@ export default function Home({
           />
         </div>
       </div>
-      <div className="relative w-40 lg:-ml-10 h-14">
+      <div className=" w-40 fixed h-14 z-20">
         <Image
           src="/assets/icons/svg/rewards-badge.svg"
           alt="rewards badge"
@@ -68,24 +73,21 @@ export default function Home({
             (categories) => categories.title === "Special Tournaments"
           )}
         />
-        <section className="w-full ">
-          <Heading text="Other Collections" />
-          <div className="grid grid-cols-2 gap-5 lg:gap-12 lg:grid-cols-3">
-            <OtherCollections text="Kids" image="kids" />
-            <OtherCollections text="Large sizes" image="large-sizes" />
-            <OtherCollections text="Goalkeeper" image="goalkeeper" />
-            <OtherCollections
-              text="Authentic / Pro Player"
-              image="pro-player"
-            />
-            <OtherCollections text="shorts" image="shorts" />
-            <OtherCollections text="socks" image="socks" />
-          </div>
-        </section>
+        <OtherCollections data={otherCollections} />
         <section className="w-full ">
           <BackgroundImage />
         </section>
       </div>
+      <motion.div
+        initial={{ scaleX: 1 }}
+        animate={{
+          scaleX: 0,
+          transition: { duration: 0.9, ease: "circOut" },
+        }}
+        exit={{ scaleX: 1, transition: { duration: 0.9, ease: "circIn" } }}
+        style={{ originX: isPresent ? 0 : 1 }}
+        className="fixed top-0 left-0 right-0 bottom-0 bg-yellow-300 z-[100]"
+      />
     </div>
   );
 }
@@ -98,12 +100,16 @@ export async function getStaticProps() {
   const popularProducts = await getPopularProducts().then(
     (res) => res.products
   );
+  const otherCollections = await getOtherCollections().then(
+    (res) => res.categories.data
+  );
 
   return {
     props: {
       banners,
       collectionsCategories,
       popularProducts,
+      otherCollections,
     },
   };
 }

@@ -1,7 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { navLinks } from "./navbarItems";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
+  const router = useRouter();
   return (
     <div className="">
       <div className="relative w-full h-8">
@@ -45,7 +49,7 @@ export default function Navbar() {
       </div>
       <div className="w-full lg:h-[88px]  flex">
         <div className="hidden w-40 bg-yellow-300 lg:flex"></div>
-        <div className="w-full">
+        <div className="w-full lg:w-11/12">
           <div className="flex w-full border-b h-14">
             <div className="items-center justify-center hidden w-48 border-r lg:flex">
               <span className=" font-semibold text-xs leading-4 ml-[6px] mr-1 ">
@@ -128,15 +132,21 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <nav className="hidden w-full h-8 lg:block ">
-            <ul className="flex items-center h-full text-xs font-bold space-x-14 px-7">
-              <li>Home</li>
-              <li>T-Shirt</li>
-              <li>NBA</li>
-              <li>Tracksuits</li>
-              <li>Products Delivery • 1 – 2 days</li>
-              <li>Contact</li>
-              <li>Reviews</li>
+          <nav className="hidden w-full h-8 lg:block border-b">
+            <ul className="flex items-center h-full text-xs font-bold space-x-20 px-7">
+              {navLinks.map((navlink, index) => (
+                <Link key={index} href={navlink.path}>
+                  <li
+                    className={`h-full flex items-center px-2 hover:border-b-2 border-yellow-300 cursor-pointer ${
+                      router.asPath === navlink.path
+                        ? "border-b-2 border-yellow-300"
+                        : ""
+                    }`}
+                  >
+                    {navlink.name}
+                  </li>
+                </Link>
+              ))}
             </ul>
           </nav>
         </div>
