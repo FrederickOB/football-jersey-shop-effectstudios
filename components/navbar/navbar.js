@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./navbarItems";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const variants = {
+    open: {
+      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+      display: "flex",
+    },
+    closed: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+      display: "none",
+    },
+  };
   const router = useRouter();
   return (
     <div className="">
@@ -47,7 +60,7 @@ export default function Navbar() {
           </span>
         </div>
       </div>
-      <div className="w-full lg:h-[88px]  flex">
+      <div className="w-full lg:h-[88px] relative flex">
         <div className="hidden w-40 bg-yellow-300 lg:flex"></div>
         <div className="w-full lg:w-11/12">
           <div className="flex w-full border-b h-14">
@@ -87,13 +100,25 @@ export default function Navbar() {
             </div>
             <div className="flex justify-between w-full lg:w-52 lg:justify-end">
               <div className="flex w-24 lg:border-l lg:w-52 lg:hidden">
-                <div className="flex items-center justify-center w-1/2 lg:border-r">
-                  <Image
-                    src="/assets/icons/svg/menu.svg"
-                    alt="menu"
-                    height={20}
-                    width={20}
-                  />
+                <div
+                  className="flex items-center justify-center w-1/2 lg:border-r"
+                  onClick={() => setOpenMenu((state) => !state)}
+                >
+                  {openMenu ? (
+                    <Image
+                      src="/assets/icons/svg/close.svg"
+                      alt="menu"
+                      height={20}
+                      width={20}
+                    />
+                  ) : (
+                    <Image
+                      src="/assets/icons/svg/menu.svg"
+                      alt="menu"
+                      height={20}
+                      width={20}
+                    />
+                  )}
                 </div>
                 <div className="flex items-center justify-center w-1/2">
                   <Image
@@ -151,6 +176,29 @@ export default function Navbar() {
           </nav>
         </div>
       </div>
+      {openMenu && (
+        <motion.nav className="lg:h-8 lg:hidden border-b">
+          <motion.ul
+            variants={variants}
+            animate={openMenu ? "open" : "closed"}
+            className="flex-col  justify-center items-start h-full text-xs font-bold space-y-5 py-5 lg:space-x-20 px-7"
+          >
+            {navLinks.map((navlink, index) => (
+              <Link key={index} href={navlink.path}>
+                <li
+                  className={`h-full flex items-center px-2 hover:border-b-2 border-yellow-300 cursor-pointer w-full ${
+                    router.asPath === navlink.path
+                      ? "border-b-2 border-yellow-300"
+                      : ""
+                  }`}
+                >
+                  {navlink.name}
+                </li>
+              </Link>
+            ))}
+          </motion.ul>
+        </motion.nav>
+      )}
     </div>
   );
 }
