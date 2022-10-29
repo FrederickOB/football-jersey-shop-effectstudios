@@ -11,19 +11,15 @@ import {
   getBanner,
   getCollectionsCategories,
   getPopularProducts,
-  getSingleCollectionCategory,
-  getSingleProduct,
-} from "./api/hello";
+} from "./api/apis";
 import CountryLeagueCollection from "../components/countryLeagueCollection/countryLeagueCollection";
+import SpecialTournamentsCollection from "../components/countryLeagueCollection/countryLeagueCollection";
 
 export default function Home({
   banners,
   collectionsCategories,
   popularProducts,
-  singleCollectionCategory,
-  singleProduct,
 }) {
-  console.log(collectionsCategories);
   return (
     <div className="">
       <Head>
@@ -67,6 +63,11 @@ export default function Home({
             (categories) => categories.title === "Country Leagues"
           )}
         />
+        <SpecialTournamentsCollection
+          data={collectionsCategories.data.filter(
+            (categories) => categories.title === "Special Tournaments"
+          )}
+        />
         <section className="w-full ">
           <Heading text="Other Collections" />
           <div className="grid grid-cols-2 gap-5 lg:gap-12 lg:grid-cols-3">
@@ -97,7 +98,7 @@ export async function getStaticProps() {
   const popularProducts = await getPopularProducts().then(
     (res) => res.products
   );
-  console.log(popularProducts);
+
   return {
     props: {
       banners,

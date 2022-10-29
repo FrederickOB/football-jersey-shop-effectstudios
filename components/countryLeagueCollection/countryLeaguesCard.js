@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
-export default function CountryLeaguesCard({ image, text,key }) {
+export default function CountryLeaguesCard({ image, text, key, slug }) {
+  console.log(slug);
   return (
     <div className="w-full h-full ">
       <div className="relative aspect-square">

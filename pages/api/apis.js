@@ -47,11 +47,11 @@ export const getSingleCollectionCategory = async ({ slug }) => {
   }
 };
 
-export const getSingleProduct = async ({ slug }) => {
+export const getSingleProduct = async (slug) => {
   try {
     const res = await axios.get(`/product-single/${slug}`);
     if (res.status === 200) {
-      return res.data.data;
+      return res.data;
     }
   } catch (err) {
     console.log(err);

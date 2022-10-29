@@ -25,6 +25,14 @@ a {
   }
 } */
 
+
+select:required:invalid {
+  color: rgb(164, 163, 163);
+}
+option {
+  color: black;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

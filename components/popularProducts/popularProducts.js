@@ -15,6 +15,7 @@ export default function PopularProducts({ data }) {
                 price={popularProduct.variants[0].price}
                 discount_price={popularProduct.variants[0].compare_at_price}
                 image={popularProduct.gallery[0].image}
+                slug={popularProduct.slug}
               />
             ))
           : null}
