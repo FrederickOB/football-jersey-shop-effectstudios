@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="w-screen bg-neutral-100">
+    <footer className="w-full bg-neutral-100">
       <div className="grid w-full grid-cols-1 gap-8 px-4 py-10 lg:p-20 lg:grid-cols-4">
         <div>
           <h3 className="text-base font-bold leading-8 ">Main Menu</h3>

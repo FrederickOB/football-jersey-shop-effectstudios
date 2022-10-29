@@ -1,14 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
 import BackgroundImage from "../components/cards/backgroundImageCard";
-import CountryLeaguesCard from "../components/cards/countryLeaguesCard";
+import CountryLeaguesCard from "../components/countryLeagueCollection/countryLeaguesCard";
 import DetailsCard from "../components/cards/detailsCard";
 import OtherCollections from "../components/cards/otherCollections";
-import ProductCard from "../components/cards/productCard";
 import Heading from "../components/Heading/headings";
 import Hero from "../components/hero/hero";
+import PopularProducts from "../components/popularProducts/popularProducts";
+import {
+  getBanner,
+  getCollectionsCategories,
+  getPopularProducts,
+  getSingleCollectionCategory,
+  getSingleProduct,
+} from "./api/hello";
+import CountryLeagueCollection from "../components/countryLeagueCollection/countryLeagueCollection";
 
-export default function Home() {
+export default function Home({
+  banners,
+  collectionsCategories,
+  popularProducts,
+  singleCollectionCategory,
+  singleProduct,
+}) {
+  console.log(collectionsCategories);
   return (
     <div className="">
       <Head>
@@ -18,7 +33,7 @@ export default function Home() {
       </Head>
 
       <div className="lg:space-y-10 lg:p-10">
-        <Hero />
+        <Hero banners={banners} />
         <div className="grid w-full grid-cols-2 gap-4 p-4 lg:h-40 lg:grid-cols-4 lg:p-0">
           <DetailsCard
             icon="truck"
@@ -46,85 +61,12 @@ export default function Home() {
         />
       </div>
       <div className="relative px-4 py-3 pb-20 space-y-20 lg:p-20">
-        <section className="w-full ">
-          <Heading text="MOST POPULAR T-SHIRTS" withScrollButtons={true} />
-          <div className="relative flex flex-row w-full space-x-8 overflow-x-auto">
-            <ProductCard
-              discount={67}
-              product_name="Manchester United 21-22"
-              price="€30.00"
-              discount_price="€89.95"
-              image="product-large"
-            />
-            <ProductCard
-              discount={67}
-              product_name="Manchester United 21-22"
-              price="€30.00"
-              discount_price="€89.95"
-              image="product-large"
-            />
-            <ProductCard
-              discount={67}
-              product_name="Manchester United 21-22"
-              price="€30.00"
-              discount_price="€89.95"
-              image="product-large"
-            />
-            <ProductCard
-              discount={67}
-              product_name="Manchester United 21-22"
-              price="€30.00"
-              discount_price="€89.95"
-              image="product-large"
-            />
-            <ProductCard
-              discount={67}
-              product_name="Manchester United 21-22"
-              price="€30.00"
-              discount_price="€89.95"
-              image="product-large"
-            />
-            <ProductCard
-              discount={67}
-              product_name="Manchester United 21-22"
-              price="€30.00"
-              discount_price="€89.95"
-              image="product-large"
-            />
-            <ProductCard
-              discount={67}
-              product_name="Manchester United 21-22"
-              price="€30.00"
-              discount_price="€89.95"
-              image="product-large"
-            />
-          </div>
-        </section>
-        <section className="w-full ">
-          <Heading text="Country Leagues" />
-          <div className="grid h-full grid-cols-2 gap-4 lg:grid-cols-5">
-            <CountryLeaguesCard
-              text="Champions League"
-              image="champions-league"
-            />
-            <CountryLeaguesCard
-              text="Champions League"
-              image="champions-league"
-            />
-            <CountryLeaguesCard
-              text="Champions League"
-              image="champions-league"
-            />
-            <CountryLeaguesCard
-              text="Champions League"
-              image="champions-league"
-            />
-            <CountryLeaguesCard
-              text="Champions League"
-              image="champions-league"
-            />
-          </div>
-        </section>
+        <PopularProducts data={popularProducts} />
+        <CountryLeagueCollection
+          data={collectionsCategories.data.filter(
+            (categories) => categories.title === "Country Leagues"
+          )}
+        />
         <section className="w-full ">
           <Heading text="Other Collections" />
           <div className="grid grid-cols-2 gap-5 lg:gap-12 lg:grid-cols-3">
@@ -145,4 +87,22 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const banners = await getBanner().then((res) => res.banners);
+  const collectionsCategories = await getCollectionsCategories().then(
+    (res) => res.categories
+  );
+  const popularProducts = await getPopularProducts().then(
+    (res) => res.products
+  );
+  console.log(popularProducts);
+  return {
+    props: {
+      banners,
+      collectionsCategories,
+      popularProducts,
+    },
+  };
 }

@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <div>
-      <div className="relative flex w-screen h-8">
+    <div className="">
+      <div className="relative w-full h-8">
         <div className="absolute top-0 left-0 flex items-center justify-center w-20 h-full lg:w-40 bg-white/10">
           <Image
             src="/assets/icons/svg/globe.svg"
@@ -23,7 +23,7 @@ export default function Navbar() {
             width={8}
           />
         </div>
-        <div className="flex items-center justify-center w-screen h-full pl-24 text-center bg-black">
+        <div className="flex items-center justify-center w-full h-full pl-24 text-center bg-black">
           <p className="text-white font-semibold text-[11px] leading-4 ml-[6px] mr-1 truncate  ">
             SALES BEGIN • FREE SHIPPING ON ALL ORDERS
           </p>
@@ -35,10 +35,10 @@ export default function Navbar() {
             height={12}
             width={12}
           />
-          <span className="text-white font-bold text-[11px] leading-4 ml-[6px] mr-1 hidden lg:block">
+          <span className="text-white font-bold text-[11px] leading-4  ml-1 hidden lg:block">
             Chat with us
           </span>
-          <span className="text-white font-bold text-[11px] leading-4 ml-[6px] mr-1 block lg:hidden">
+          <span className="text-white font-bold text-[11px] leading-4  ml-1 block lg:hidden">
             Chat
           </span>
         </div>
