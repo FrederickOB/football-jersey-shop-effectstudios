@@ -1,10 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import BackgroundImage from "../components/cardss/backgroundImageCard";
-import CountryLeaguesCard from "../components/countryLeagueCollection/countryLeaguesCard";
-import DetailsCard from "../components/cardss/detailsCard";
+import BackgroundImage from "../components/cards/backgroundImageCard";
+import DetailsCard from "../components/cards/detailsCard";
 import OtherCollections from "../components/otherCollections/otherCollections";
-import Heading from "../components/Heading/headings";
 import Hero from "../components/hero/hero";
 import PopularProducts from "../components/popularProducts/popularProducts";
 import {
