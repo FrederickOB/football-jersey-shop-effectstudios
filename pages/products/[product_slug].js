@@ -311,11 +311,13 @@ export async function getStaticPaths() {
   );
 
   const paths = popularProducts.data.map((product) => {
-    return {
-      params: {
-        product_slug: product.slug,
-      },
-    };
+    if (product?.slug) {
+      return {
+        params: {
+          product_slug: product?.slug,
+        },
+      };
+    }
   });
 
   return { paths, fallback: false };
